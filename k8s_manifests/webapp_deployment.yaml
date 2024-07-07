@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  namespace: assignment2-web
+  labels:
+    app: webserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: employees
+  template:
+    metadata:
+      labels:
+        app: employees
+    spec:
+      containers:
+      - name: webapp
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        image: 015937355141.dkr.ecr.us-east-1.amazonaws.com/mywebapp:v1.0
+        env:
+        - name: DBPORT
+          value: "3306"
+        - name: DBPWD
+          value: "cg1225_clo835"
+        - name: DBHOST
+          value: "mysql.assignment2-db.svc.cluster.local"
+        - name: DBUSER
+          value: "root"

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  namespace: assignment2-db
+  labels:
+    app: mysqldb
+spec:
+  containers:
+  - name: mysql-db
+    image: 015937355141.dkr.ecr.us-east-1.amazonaws.com/mydb:v1.0
+    ports:
+    - containerPort: 3306
+      protocol: TCP
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "cg1225_clo835"
