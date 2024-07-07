@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: webapp
-    image: 015937355141.dkr.ecr.us-east-1.amazonaws.com/mywebapp:v1.0
+    image: 955996620086.dkr.ecr.us-east-1.amazonaws.com/assignment2-myrepo:webapp-image-v1.0
     ports:
     - containerPort: 8080
       protocol: TCP
