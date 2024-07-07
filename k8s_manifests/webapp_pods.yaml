@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: webserver
+  name: webapp
+  namespace: assignment2-web
+spec:
+  containers:
+  - name: webapp
+    image: 015937355141.dkr.ecr.us-east-1.amazonaws.com/mywebapp:v1.0
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    env:
+     - name: DBPORT
+          value: "3306"
+    - name: DBPWD
+          value: "cg1225_clo835"
+    - name: DBHOST
+          value: "mysql.assignment2-db.svc.cluster.local"
+    - name: DBUSER
+          value: "root"

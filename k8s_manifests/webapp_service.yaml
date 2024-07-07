@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  namespace: assignment2-web
+  labels:
+    app: webserver
+spec:
+  selector:
+    app: webserver
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30000
